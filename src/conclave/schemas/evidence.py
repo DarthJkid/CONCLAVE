@@ -3,7 +3,7 @@
 from __future__ import annotations
 
 import hashlib
-from datetime import datetime
+from datetime import datetime, timezone
 from enum import StrEnum
 from typing import Any
 
@@ -26,7 +26,7 @@ class Provenance(BaseModel):
 
     source: str = Field(..., description="Data source name, e.g. 'gnomAD', 'ClinVar', 'PubMed'")
     source_version: str | None = Field(None, description="Version or release of the data source")
-    retrieved_at: datetime = Field(default_factory=datetime.utcnow)
+    retrieved_at: datetime = Field(default_factory=lambda: datetime.now(timezone.utc))
     url: str | None = None
     query: str | None = Field(None, description="The query or API call used to retrieve this evidence")
     raw_response_hash: str | None = Field(
@@ -65,7 +65,7 @@ class EvidenceBundle(BaseModel):
     variant_id: str
     criterion: str
     items: list[Evidence] = Field(default_factory=list)
-    assembled_at: datetime = Field(default_factory=datetime.utcnow)
+    assembled_at: datetime = Field(default_factory=lambda: datetime.now(timezone.utc))
 
     @model_validator(mode="after")
     def check_consistent_criterion(self) -> "EvidenceBundle":

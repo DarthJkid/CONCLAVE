@@ -4,7 +4,7 @@ from __future__ import annotations
 
 import hashlib
 import json
-from datetime import datetime
+from datetime import datetime, timezone
 from typing import Any
 
 from pydantic import BaseModel, Field, model_validator
@@ -27,7 +27,7 @@ class AuditTrail(BaseModel):
 
     run_id: str = Field(..., description="UUID for this interpretation run")
     variant_id: str
-    started_at: datetime = Field(default_factory=datetime.utcnow)
+    started_at: datetime = Field(default_factory=lambda: datetime.now(timezone.utc))
     finished_at: datetime | None = None
     conclave_version: str = Field(..., description="Version of CONCLAVE used")
     model_snapshots: list[ModelSnapshot] = Field(

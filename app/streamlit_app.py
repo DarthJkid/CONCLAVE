@@ -13,7 +13,6 @@ st.set_page_config(
 
 # ── Sidebar ──────────────────────────────────────────────────────────────────
 with st.sidebar:
-    st.image("https://raw.githubusercontent.com/DarthJkid/CONCLAVE/main/README.md", width=60)
     st.title("🧬 CONCLAVE")
     st.caption("Calibrated multi-agent variant interpretation")
     st.divider()

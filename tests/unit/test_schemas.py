@@ -125,8 +125,8 @@ class TestAuditTrail:
         assert len(fp1) == 64  # SHA-256 hex
 
     def test_finished_before_started_raises(self) -> None:
-        from datetime import datetime, timedelta
-        now = datetime.utcnow()
+        from datetime import datetime, timedelta, timezone
+        now = datetime.now(timezone.utc)
         with pytest.raises(ValidationError, match="finished_at"):
             AuditTrail(
                 run_id="run-xyz",
