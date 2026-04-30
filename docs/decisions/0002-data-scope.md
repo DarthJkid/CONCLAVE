@@ -1,7 +1,7 @@
 # ADR 0002: Data Scope — gnomAD, ClinVar, PubMed Only
 
 **Status:** Accepted
-**Date:** 2024-01-01
+**Date:** 2026-04-30
 
 ## Context
 CONCLAVE requires population frequency, clinical significance, and literature data. Many databases are available (gnomAD, ExAC, 1000G, ClinVar, HGMD, LOVD, PubMed, etc.).

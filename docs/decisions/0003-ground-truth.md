@@ -1,7 +1,7 @@
 # ADR 0003: Ground Truth — ClinVar Expert Panel Reviews
 
 **Status:** Accepted
-**Date:** 2024-01-01
+**Date:** 2026-04-30
 
 ## Context
 We need a gold-standard dataset to evaluate CONCLAVE's classification accuracy.

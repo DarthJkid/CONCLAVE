@@ -1,7 +1,7 @@
 # ADR 0004: Determinism Contract
 
 **Status:** Accepted
-**Date:** 2024-01-01
+**Date:** 2026-04-30
 
 ## Context
 Reproducibility is a first-class requirement for clinical tools. LLM outputs are stochastic by default.

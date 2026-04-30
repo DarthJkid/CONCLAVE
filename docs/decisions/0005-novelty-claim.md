@@ -1,7 +1,7 @@
 # ADR 0005: Novelty Claim
 
 **Status:** Accepted
-**Date:** 2024-01-01
+**Date:** 2026-04-30
 
 ## Context
 Several existing tools (InterVar, AutoACMG, VarSome) perform ACMG/AMP-aligned variant classification. We need to articulate CONCLAVE's distinct contribution.

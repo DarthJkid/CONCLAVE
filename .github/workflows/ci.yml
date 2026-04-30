@@ -2,64 +2,83 @@ name: CI
 
 on:
   push:
-    branches: ["**"]
+    branches: [main]
   pull_request:
     branches: [main]
 
+# Cancel in-progress runs on the same branch when a new push happens.
+concurrency:
+  group: ${{ github.workflow }}-${{ github.ref }}
+  cancel-in-progress: true
+
 jobs:
+  lint-and-type:
+    name: Lint and type-check
+    runs-on: ubuntu-latest
+    steps:
+      - name: Check out repository
+        uses: actions/checkout@v4
+
+      - name: Install uv
+        uses: astral-sh/setup-uv@v3
+        with:
+          version: "0.5.x"
+          enable-cache: true
+
+      - name: Set up Python
+        run: uv python install 3.11
+
+      - name: Install dependencies
+        run: uv sync --all-extras
+
+      - name: Lint with ruff
+        run: |
+          uv run ruff check src tests
+          uv run ruff format --check src tests
+
+      - name: Type-check with mypy
+        run: uv run mypy src tests
+
   test:
+    name: Unit and property tests
     runs-on: ubuntu-latest
-    permissions:
-      contents: read
     steps:
-      - uses: actions/checkout@v4
-
-      - name: Set up Python
-        uses: actions/setup-python@v5
-        with:
-          python-version-file: .python-version
+      - name: Check out repository
+        uses: actions/checkout@v4
 
       - name: Install uv
         uses: astral-sh/setup-uv@v3
+        with:
+          version: "0.5.x"
+          enable-cache: true
+
+      - name: Set up Python
+        run: uv python install 3.11
 
       - name: Install dependencies
         run: uv sync --all-extras
 
-      - name: Lint
-        run: uv run ruff check src/ tests/
+      - name: Run pytest
+        run: uv run pytest -v --cov-fail-under=80
 
-      - name: Format check
-        run: uv run ruff format --check src/ tests/
-
-      - name: Type check
-        run: uv run mypy src/
-
-      - name: Unit tests
-        run: uv run pytest tests/unit -v --tb=short
-
-      - name: Integration tests
-        run: uv run pytest tests/integration -v --tb=short
-
-      - name: Determinism tests
-        run: uv run pytest tests/determinism -v --tb=short
-
-  property-tests:
+  determinism:
+    name: Determinism gate
     runs-on: ubuntu-latest
-    permissions:
-      contents: read
     steps:
-      - uses: actions/checkout@v4
-
-      - name: Set up Python
-        uses: actions/setup-python@v5
-        with:
-          python-version-file: .python-version
+      - name: Check out repository
+        uses: actions/checkout@v4
 
       - name: Install uv
         uses: astral-sh/setup-uv@v3
+        with:
+          version: "0.5.x"
+          enable-cache: true
+
+      - name: Set up Python
+        run: uv python install 3.11
 
       - name: Install dependencies
         run: uv sync --all-extras
 
-      - name: Property tests
-        run: uv run pytest tests/property -v --tb=short
+      - name: Run determinism tests
+        run: uv run pytest tests/determinism -v
