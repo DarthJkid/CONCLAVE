@@ -1,0 +1,13 @@
+defaults:
+  - agents: pm2
+  - models: default
+  - data: default
+  - _self_
+
+project:
+  name: conclave
+  version: "0.1.0"
+
+logging:
+  level: INFO
+  format: "{time} | {level} | {name} | {message}"

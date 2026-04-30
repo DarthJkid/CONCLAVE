@@ -1,0 +1,22 @@
+{
+  "variant_id": "13:32339461:A:-",
+  "chromosome": "13",
+  "position": 32339461,
+  "reference_allele": "A",
+  "alternate_allele": "-",
+  "genome_build": "GRCh38",
+  "hgvs": {
+    "cdna": "NM_000059.4:c.5946delT",
+    "protein": "NP_000050.3:p.Ser1982fs",
+    "genomic": "NC_000013.11:g.32339461delA"
+  },
+  "gene_context": {
+    "gene_symbol": "BRCA2",
+    "hgnc_id": "HGNC:1101",
+    "omim_ids": ["600185"],
+    "inheritance_modes": ["autosomal_dominant"],
+    "moi_confident": true
+  },
+  "expected_classification": "Pathogenic",
+  "notes": "Well-established pathogenic BRCA2 frameshift variant. Used as a positive control."
+}

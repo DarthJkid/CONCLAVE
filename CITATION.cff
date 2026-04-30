@@ -1,0 +1,23 @@
+cff-version: 1.2.0
+message: "If you use CONCLAVE, please cite it as below."
+type: software
+title: "CONCLAVE: Calibrated Orchestrated Network of Criterion-level LLM Agents for Variant Evaluation"
+version: 0.1.0
+date-released: 2024-01-01
+license: GPL-3.0
+repository-code: "https://github.com/DarthJkid/CONCLAVE"
+abstract: >
+  A research-grade clinical genomics platform for ACMG/AMP-aligned variant
+  interpretation with per-criterion conformal abstention, multi-agent
+  orchestration, and full evidence provenance.
+authors:
+  - family-names: "DarthJkid"
+    given-names: ""
+keywords:
+  - variant interpretation
+  - clinical genomics
+  - ACMG
+  - AMP
+  - large language models
+  - conformal prediction
+  - multi-agent systems
