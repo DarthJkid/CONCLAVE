@@ -10,6 +10,8 @@ from __future__ import annotations
 import json
 
 import pytest
+from pydantic import ValidationError
+
 from conclave.schemas.variant import (
     HGVS,
     Chromosome,
@@ -17,7 +19,6 @@ from conclave.schemas.variant import (
     GenomicCoordinate,
     Variant,
 )
-from pydantic import ValidationError
 
 
 # A known-good fixture used across multiple tests.

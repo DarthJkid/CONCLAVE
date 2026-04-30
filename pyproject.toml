@@ -10,7 +10,7 @@ authors = [
 ]
 
 dependencies = [
-    "pydantic>=2.7,<3.0",
+    "pydantic==2.13.3",
 ]
 
 [project.optional-dependencies]
