@@ -49,10 +49,9 @@ select = [
     "SIM",  # simplifications
     "RUF",  # ruff-native rules
 ]
-ignore = [
-    "ANN101",  # missing type annotation for self
-    "ANN102",  # missing type annotation for cls
-]
+# Ruff 0.15 removed ANN101 and ANN102 — Python no longer flags missing
+# self/cls annotations. No active ignores currently needed.
+ignore = []
 
 [tool.ruff.lint.per-file-ignores]
 "tests/**" = ["S101"]  # tests are allowed to use assert
