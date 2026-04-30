@@ -1,0 +1,67 @@
+# Python
+__pycache__/
+*.py[cod]
+*$py.class
+*.so
+*.pyc
+
+# Virtual environments
+.venv/
+venv/
+env/
+ENV/
+
+# Distribution / packaging
+dist/
+build/
+*.egg-info/
+*.egg
+MANIFEST
+
+# Testing
+.pytest_cache/
+.coverage
+coverage.xml
+htmlcov/
+.tox/
+
+# Type checkers / linters
+.mypy_cache/
+.ruff_cache/
+.dmypy.json
+dmypy.json
+
+# Jupyter / notebooks — ignore outputs but keep notebooks
+notebooks/*.ipynb
+!notebooks/.gitkeep
+
+# Data — track only the placeholder
+/data/*
+!/data/.gitkeep
+
+# Secrets / environment
+.env
+.env.*
+secrets/
+*.secret
+
+# IDEs
+.DS_Store
+.idea/
+.vscode/
+*.swp
+*.swo
+
+# Reports
+/reports/figures/*
+!/reports/figures/_src/
+!/reports/figures/_src/.gitkeep
+/reports/metrics/*.json
+!/reports/metrics/.gitkeep
+
+# DVC
+/tmp
+
+# Misc
+*.log
+.cache/

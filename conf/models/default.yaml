@@ -1,0 +1,17 @@
+llm:
+  provider: openai
+  model_id: gpt-4o
+  temperature: 0.0
+  max_tokens: 2048
+  snapshot: "2024-05-13"
+
+embedding:
+  provider: sentence-transformers
+  model_id: BAAI/bge-large-en-v1.5
+  snapshot: "abc123"  # pin to a specific commit
+
+nli:
+  provider: huggingface
+  model_id: cross-encoder/nli-deberta-v3-base
+  snapshot: "abc123"
+  threshold: 0.7  # minimum entailment score for citation faithfulness

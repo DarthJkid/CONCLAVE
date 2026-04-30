@@ -1,0 +1,22 @@
+# PM2: Population data (gnomAD allele frequency threshold)
+name: pm2
+type: lookup
+criterion: PM2
+description: >
+  Absent from controls (or at extremely low frequency if recessive) in
+  Exome Sequencing Project, 1000 Genomes Project, or Exome Aggregation
+  Consortium. PM2_Supporting is used when frequency is <0.001.
+
+thresholds:
+  af_absent: 0.0  # treat as absent when not found
+  af_supporting: 0.001  # PM2_Supporting threshold
+  af_moderate: 0.0001   # PM2 (full) threshold
+
+datasource: gnomAD
+gnomad_version: "4.1"
+
+strengths:
+  default: supporting   # most PM2 calls are now PM2_Supporting
+  full: moderate        # for extremely rare / absent with strong context
+
+prompt_template: pm2_lookup

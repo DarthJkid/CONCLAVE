@@ -1,0 +1,1 @@
+"""Tavtigian + Richards verdict combination."""

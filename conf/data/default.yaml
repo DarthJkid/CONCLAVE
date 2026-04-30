@@ -1,0 +1,23 @@
+gnomad:
+  version: "4.1"
+  url: "https://gnomad.broadinstitute.org/api"
+  timeout_seconds: 30
+
+clinvar:
+  version: "2024-05"
+  url: "https://eutils.ncbi.nlm.nih.gov/entrez/eutils"
+  timeout_seconds: 30
+
+pubmed:
+  base_url: "https://eutils.ncbi.nlm.nih.gov/entrez/eutils"
+  max_results: 20
+  timeout_seconds: 30
+
+spliceai:
+  score_threshold: 0.2
+  lookup_api: "https://spliceailookup-api.broadinstitute.org"
+
+cache:
+  backend: disk
+  directory: ".cache/conclave"
+  ttl_hours: 168  # 1 week
