@@ -1,5 +1,11 @@
 """CONCLAVE schemas — single source of truth for all data contracts."""
 
+from conclave.schemas.criterion import (
+    Criterion,
+    CriterionInput,
+    CriterionOutput,
+    Strength,
+)
 from conclave.schemas.evidence import (
     Evidence,
     EvidenceBundle,
@@ -18,10 +24,19 @@ from conclave.schemas.variant import (
     GenomicCoordinate,
     Variant,
 )
+from conclave.schemas.verdict import (
+    CalibratedVerdict,
+    PathogenicityTier,
+    PathogenicityVerdict,
+)
 
 __all__ = [
     "HGVS",
+    "CalibratedVerdict",
     "Chromosome",
+    "Criterion",
+    "CriterionInput",
+    "CriterionOutput",
     "DNABase",
     "Evidence",
     "EvidenceBundle",
@@ -29,9 +44,12 @@ __all__ = [
     "GeneSymbol",
     "GenomicCoordinate",
     "ModelIdentifier",
+    "PathogenicityTier",
+    "PathogenicityVerdict",
     "Provenance",
     "SHA256Hex",
     "SourceKind",
+    "Strength",
     "Variant",
     "sha256_of",
 ]
