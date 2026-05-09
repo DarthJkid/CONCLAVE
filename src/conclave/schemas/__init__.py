@@ -1,5 +1,6 @@
 """CONCLAVE schemas — single source of truth for all data contracts."""
 
+from conclave.schemas.audit import AuditTrail
 from conclave.schemas.criterion import (
     Criterion,
     CriterionInput,
@@ -32,6 +33,7 @@ from conclave.schemas.verdict import (
 
 __all__ = [
     "HGVS",
+    "AuditTrail",
     "CalibratedVerdict",
     "Chromosome",
     "Criterion",
